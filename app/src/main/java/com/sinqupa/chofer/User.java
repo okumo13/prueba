@@ -1,24 +1,24 @@
 package com.sinqupa.chofer;
 
 public class User {
-    private int userID;
+    private String userID;
     private String email;
     private String password;
 
     public User() {
     }
 
-    public User(int userID, String email, String password) {
+    public User(String userID, String email, String password) {
         this.userID = userID;
         this.email = email;
         this.password = password;
     }
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 

@@ -15,19 +15,20 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="100dp"
         android:text="Olvido su contraseña"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintBottom_toTopOf="@+id/btnIngresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnIngresar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="36dp"
         android:text="Ingresar"
+        android:onClick="Ingresar"
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -48,22 +49,22 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtUsername"
+        android:id="@+id/txtEmailLogin"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="Ingresar Correo"
         android:inputType="textPersonName"
-        android:text="Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/txtPassword"
+        android:id="@+id/txtPasswordLogin"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -71,13 +72,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
+        android:hint="Ingresar Password"
         android:inputType="textPersonName"
-        android:text="Password"
         app:layout_constraintBottom_toTopOf="@+id/txtForget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailLogin" />
 
     <TextView
         android:id="@+id/textView6"

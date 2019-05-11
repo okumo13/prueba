@@ -3,31 +3,24 @@ package com.sinqupa.chofer;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Register extends AppCompatActivity {
     private EditText txtEmail,txtPassword,txtRepeatPassword;
-    private DatabaseReference fireBaseBD;
     private FirebaseAuth firebaseAuth;
-
+    private DatabaseReference fireBaseBD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +32,10 @@ public class Register extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         fireBaseBD = FirebaseDatabase.getInstance().getReference();
-        /*fireBaseBD = FirebaseDatabase.getInstance().getReference();
-
-        fireBaseBD.child("Employee").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                     //Employee data =    snapshot.getValue(Employee.class);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
-
     }
 
     private void RegisterDatabase(Employee employee){
         Map<String,Object> data = new HashMap<>();
-        data.put("code",employee.getCode());
         data.put("latitudeTravel",employee.getLatitudeTravel());
         data.put("longitudeTravel",employee.getLongitudeTravel());
         data.put("code",employee.getCode());
@@ -93,7 +68,7 @@ public class Register extends AppCompatActivity {
         employee.setLatitudeTravel("0");
         employee.setLongitudeTravel("0");
         employee.setCode(0);
-        employee.setActivated(false);
+        employee.setActivated(true);
         RegisterAuthentication(user,employee);
     }
 }
