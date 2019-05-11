@@ -1,31 +1,29 @@
 package com.sinqupa.chofer;
 
 public class Employee {
-    private String username;
-    private String password;
+    private String userID;
     private String latitudeTravel;
     private String longitudeTravel;
-    private String email;
     private Integer code;
     private Boolean activated;
 
     public Employee() {
     }
 
-    public String getUsername() {
-        return username;
+    public Employee(String userID, String latitudeTravel, String longitudeTravel, Integer code, Boolean activated) {
+        this.userID = userID;
+        this.latitudeTravel = latitudeTravel;
+        this.longitudeTravel = longitudeTravel;
+        this.code = code;
+        this.activated = activated;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getUserID() {
+        return userID;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getLatitudeTravel() {
@@ -42,14 +40,6 @@ public class Employee {
 
     public void setLongitudeTravel(String longitudeTravel) {
         this.longitudeTravel = longitudeTravel;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Integer getCode() {
