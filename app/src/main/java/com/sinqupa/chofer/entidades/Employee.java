@@ -1,16 +1,16 @@
-package com.sinqupa.chofer;
+package com.sinqupa.chofer.entidades;
 
 public class Employee {
     private String userID;
-    private String latitudeTravel;
-    private String longitudeTravel;
+    private double latitudeTravel;
+    private double longitudeTravel;
     private Integer code;
     private Boolean activated;
 
     public Employee() {
     }
 
-    public Employee(String userID, String latitudeTravel, String longitudeTravel, Integer code, Boolean activated) {
+    public Employee(String userID, double latitudeTravel, double longitudeTravel, Integer code, Boolean activated) {
         this.userID = userID;
         this.latitudeTravel = latitudeTravel;
         this.longitudeTravel = longitudeTravel;
@@ -26,19 +26,19 @@ public class Employee {
         this.userID = userID;
     }
 
-    public String getLatitudeTravel() {
+    public double getLatitudeTravel() {
         return latitudeTravel;
     }
 
-    public void setLatitudeTravel(String latitudeTravel) {
+    public void setLatitudeTravel(double latitudeTravel) {
         this.latitudeTravel = latitudeTravel;
     }
 
-    public String getLongitudeTravel() {
+    public double getLongitudeTravel() {
         return longitudeTravel;
     }
 
-    public void setLongitudeTravel(String longitudeTravel) {
+    public void setLongitudeTravel(double longitudeTravel) {
         this.longitudeTravel = longitudeTravel;
     }
 

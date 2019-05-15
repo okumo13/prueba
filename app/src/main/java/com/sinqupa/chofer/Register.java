@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -13,6 +12,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.sdsmdg.tastytoast.TastyToast;
+import com.sinqupa.chofer.entidades.Employee;
+import com.sinqupa.chofer.entidades.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,7 +44,7 @@ public class Register extends AppCompatActivity {
         data.put("activated",employee.getActivated());
 
         fireBaseBD.child("Employee").child(employee.getUserID()).setValue(data);
-        Toast.makeText(getApplicationContext(),"Se Registro", Toast.LENGTH_SHORT).show();
+        TastyToast.makeText(getApplicationContext(), "Registro Exitoso", TastyToast.LENGTH_LONG, TastyToast.SUCCESS);
     }
 
     private void RegisterAuthentication(User user, final Employee employee){
@@ -54,7 +56,7 @@ public class Register extends AppCompatActivity {
                     RegisterDatabase(employee);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"No se registro"  , Toast.LENGTH_SHORT).show();
+                    TastyToast.makeText(getApplicationContext(), "Ocurrio un Error", TastyToast.LENGTH_LONG, TastyToast.WARNING);
                 }
             }
         });
@@ -65,8 +67,8 @@ public class Register extends AppCompatActivity {
         Employee employee = new Employee();
         user.setEmail(txtEmail.getText().toString().trim());
         user.setPassword(txtPassword.getText().toString().trim());
-        employee.setLatitudeTravel("0");
-        employee.setLongitudeTravel("0");
+        employee.setLatitudeTravel(0);
+        employee.setLongitudeTravel(0);
         employee.setCode(0);
         employee.setActivated(true);
         RegisterAuthentication(user,employee);

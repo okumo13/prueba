@@ -9,6 +9,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.sdsmdg.tastytoast.TastyToast;
 import com.sinqupa.chofer.service.LocationUpdatesService;
 import com.sinqupa.chofer.utility.Utility;
 import java.util.ArrayList;
@@ -30,13 +32,17 @@ public class Welcome extends AppCompatActivity {
     }
 
     public void Detener(View view) {
-        if (checkPermissions())
+        if (checkPermissions()){
             removeLocationUpdates();
+            TastyToast.makeText(getApplicationContext(), "Aplicacion Detenida", TastyToast.LENGTH_LONG, TastyToast.DEFAULT);
+        }
     }
 
     public void Iniciar(View view) {
-        if (checkPermissions())
+        if (checkPermissions()){
             requestLocationUpdates();
+            TastyToast.makeText(getApplicationContext(), "Aplicacion Iniciada", TastyToast.LENGTH_LONG, TastyToast.DEFAULT);
+        }
     }
     private boolean checkPermissions() {
         for(String permission : Utility.PERMISSIONS){

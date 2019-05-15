@@ -31,7 +31,7 @@ public class Forget extends AppCompatActivity {
                 if (task.isSuccessful()){
                     TastyToast.makeText(getApplicationContext(), "Email Enviado", TastyToast.LENGTH_LONG, TastyToast.SUCCESS);
                 }else {
-                    TastyToast.makeText(getApplicationContext(), "Error al Enviar", TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                    TastyToast.makeText(getApplicationContext(), "Ocurrio un Error", TastyToast.LENGTH_LONG, TastyToast.ERROR);
                 }
             }
         });

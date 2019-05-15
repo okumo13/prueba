@@ -12,7 +12,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.sinqupa.chofer.Employee;
+import com.sinqupa.chofer.entidades.Employee;
 import com.sinqupa.chofer.utility.Utility;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,8 +60,8 @@ public class LocationUpdatesService extends Service {
 
     private void onNewLocation(Location location) {
         Employee employee = new Employee();
-        employee.setLongitudeTravel(String.valueOf(location.getLongitude()));
-        employee.setLatitudeTravel(String.valueOf(location.getLatitude()));
+        employee.setLongitudeTravel(location.getLongitude());
+        employee.setLatitudeTravel(location.getLatitude());
         employee.setCode(0);
         employee.setActivated(true);
         UpdateDatabase(employee);

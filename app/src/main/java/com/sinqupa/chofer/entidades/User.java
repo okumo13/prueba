@@ -1,4 +1,4 @@
-package com.sinqupa.chofer;
+package com.sinqupa.chofer.entidades;
 
 public class User {
     private String userID;
