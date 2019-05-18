@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,6 +38,19 @@ public class MainActivity extends AppCompatActivity {
         User user = new User();
         user.setEmail(txtEmail.getText().toString());
         user.setPassword(txtPassword.getText().toString());
+        //validacion de email y pass
+        String ema=txtEmail.getText().toString();
+        String pas=txtPassword.getText().toString();
+        if(TextUtils.isEmpty(ema)){
+            Toast.makeText(this,"Debe ingresar un email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(pas)){
+            Toast.makeText(this,"Debe ingresar una contraseña",Toast.LENGTH_SHORT).show();
+        return;
+        }
+
+
         Login(user);
     }
 
