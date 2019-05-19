@@ -1,10 +1,15 @@
 package com.sinqupa.chofer;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,10 +29,18 @@ public class Register extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private DatabaseReference fireBaseBD;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        //Para la barra
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Registrarse");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         txtRepeatPassword = (EditText) findViewById(R.id.txtRepeatPassword);
         txtEmail = (EditText) findViewById(R.id.txtEmail);
@@ -67,6 +80,26 @@ public class Register extends AppCompatActivity {
         Employee employee = new Employee();
         user.setEmail(txtEmail.getText().toString().trim());
         user.setPassword(txtPassword.getText().toString().trim());
+        //validacion de email y password
+        String ema=txtEmail.getText().toString();
+        String pas=txtPassword.getText().toString();
+        String repas=txtRepeatPassword.getText().toString();
+        if(TextUtils.isEmpty(ema)){
+            Toast.makeText(this,"Debe ingresar un email",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(pas)){
+            Toast.makeText(this,"Debe ingresar una contraseña",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(repas)){
+            Toast.makeText(this,"Debe repetir su contraseña",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(pas!=repas){
+            Toast.makeText(this,"Las contraseñas no coinciden",Toast.LENGTH_SHORT).show();
+            return;
+        }
         employee.setLatitudeTravel(0);
         employee.setLongitudeTravel(0);
         employee.setCode(0);
