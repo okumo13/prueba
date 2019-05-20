@@ -1,8 +1,10 @@
 package com.sinqupa.chofer;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
@@ -20,6 +22,12 @@ public class Forget extends AppCompatActivity {
         setContentView(R.layout.activity_forget);
         txtEmailForget = (EditText) findViewById(R.id.txtEmailForget);
         firebaseAuth = FirebaseAuth.getInstance();
+
+        //Para la barra
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Recuperar contraseña");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -44,5 +52,10 @@ public class Forget extends AppCompatActivity {
         }else {
             TastyToast.makeText(getApplicationContext(), "Ingresar Correo", TastyToast.LENGTH_LONG, TastyToast.WARNING);
         }
+    }
+
+    public void Back(View view) {
+        Intent intent=new Intent(Forget.this,MainActivity.class);
+        startActivity(intent);
     }
 }

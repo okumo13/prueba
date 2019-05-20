@@ -1,6 +1,7 @@
 package com.sinqupa.chofer;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,6 +68,8 @@ public class Register extends AppCompatActivity {
                 if (task.isSuccessful()){
                     employee.setUserID(firebaseAuth.getCurrentUser().getUid());
                     RegisterDatabase(employee);
+                    Intent intent=new Intent(Register.this,MainActivity.class);
+                    startActivity(intent);
                 }
                 else{
                     TastyToast.makeText(getApplicationContext(), "Ocurrio un Error", TastyToast.LENGTH_LONG, TastyToast.WARNING);
@@ -84,6 +87,7 @@ public class Register extends AppCompatActivity {
         String ema=txtEmail.getText().toString();
         String pas=txtPassword.getText().toString();
         String repas=txtRepeatPassword.getText().toString();
+
         if(TextUtils.isEmpty(ema)){
             Toast.makeText(this,"Debe ingresar un email",Toast.LENGTH_SHORT).show();
             return;
@@ -96,14 +100,26 @@ public class Register extends AppCompatActivity {
             Toast.makeText(this,"Debe repetir su contraseña",Toast.LENGTH_SHORT).show();
             return;
         }
-        if(pas!=repas){
-            Toast.makeText(this,"Las contraseñas no coinciden",Toast.LENGTH_SHORT).show();
+        if(pas.equals(repas)){
+
+            if(pas.length()< 6){
+                Toast.makeText(this,"La contraseña debe ser mayor de 6 dígitos",Toast.LENGTH_SHORT).show();
+                return;
+            }
+            employee.setLatitudeTravel(0);
+            employee.setLongitudeTravel(0);
+            employee.setCode(0);
+            employee.setActivated(true);
+            RegisterAuthentication(user,employee);
+
+        } else {
+            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             return;
         }
-        employee.setLatitudeTravel(0);
-        employee.setLongitudeTravel(0);
-        employee.setCode(0);
-        employee.setActivated(true);
-        RegisterAuthentication(user,employee);
+    }
+
+    public void Back(View view){
+        Intent intent=new Intent(Register.this, MainActivity.class);
+        startActivity(intent);
     }
 }
