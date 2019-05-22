@@ -119,7 +119,6 @@ public class Register extends AppCompatActivity {
     }
 
     public void Back(View view){
-        Intent intent=new Intent(Register.this, MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 }

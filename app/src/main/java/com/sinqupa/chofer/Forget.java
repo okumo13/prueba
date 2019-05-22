@@ -55,7 +55,6 @@ public class Forget extends AppCompatActivity {
     }
 
     public void Back(View view) {
-        Intent intent=new Intent(Forget.this,MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 }

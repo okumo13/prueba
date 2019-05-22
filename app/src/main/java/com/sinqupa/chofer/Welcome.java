@@ -29,6 +29,7 @@ public class Welcome extends AppCompatActivity {
     }
 
     public void Cerrar(View view) {
+        finish();
     }
 
     public void Detener(View view) {
@@ -93,4 +94,6 @@ public class Welcome extends AppCompatActivity {
     private void removeLocationUpdates() {
         stopService(new Intent(this, LocationUpdatesService.class));
     }
+
+
 }
