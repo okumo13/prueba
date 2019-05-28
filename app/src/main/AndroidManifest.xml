@@ -3,10 +3,9 @@
     package="com.sinqupa.chofer">
     <!-- Permisos para poder usar foreground services en P+. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!-- Permisos para poder usar receiver en P+. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Permisos para poder usar receiver en P+. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
@@ -16,8 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Register" android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".Forget" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Chofer"></activity>
+        <activity android:name=".Barra" />
+        <activity
+            android:name=".Register"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Forget"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".Welcome" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -26,12 +31,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".service.LocationUpdatesService"
+
+        <service
+            android:name=".service.LocationUpdatesService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
         <receiver android:name=".broadcast.LocationUpdatesBroadcast">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>

@@ -55,7 +55,7 @@
                 android:layout_gravity="center_horizontal"
                 android:ems="10"
                 android:hint="Ingresar Contraseña"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/txtRepeatPassword"
@@ -66,7 +66,7 @@
                 android:layout_gravity="center_horizontal"
                 android:ems="10"
                 android:hint="Repetir Contraseña"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
 
             <LinearLayout
                 android:layout_width="match_parent"

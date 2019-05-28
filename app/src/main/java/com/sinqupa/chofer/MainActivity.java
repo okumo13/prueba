@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Utility.userID = firebaseAuth.getCurrentUser().getUid();
-                    Intent intent = new Intent(MainActivity.this,Welcome.class);
+                    Intent intent = new Intent(MainActivity.this,Barra.class);
                     startActivity(intent);
                 }
                 else{

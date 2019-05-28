@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/calle"
+
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -14,22 +14,24 @@
         android:id="@+id/txtEmailLogin"
         android:drawableLeft="@drawable/ic_person_outline_black_24dp"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:textColorHint="#000000"
-        android:ems="10"
-        android:hint="Ingresar Correo"
-        android:inputType="textPersonName" />
+        android:textColorHint="#FAFAFA"
+        android:ems="30"
+        android:hint="USUARIO"
+        android:inputType="textPersonName"
+        android:background="@drawable/caja_transparente"/>
 
     <EditText
         android:id="@+id/txtPasswordLogin"
         android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:textColorHint="#000000"
+        android:layout_height="40dp"
+        android:textColorHint="#FAFAFA"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Ingresar Password"
+        android:hint="CONTRASEÑA"
+        android:background="@drawable/caja_transparente"
         android:inputType="textPassword" />
 
     <Button
@@ -56,7 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="#0000"
-
         android:onClick="ForgetPassword"
         android:text="Olvidé mi contraseña" />
 
