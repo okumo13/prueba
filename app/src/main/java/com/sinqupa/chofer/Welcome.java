@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.sdsmdg.tastytoast.TastyToast;
 import com.sinqupa.chofer.service.LocationUpdatesService;
@@ -22,11 +23,30 @@ import java.util.List;
 
 public class Welcome extends Fragment {
 
+    //ESTO ES PARA EL BOTON DE INICIAR RECORRIDO
+    Button btnIniciar;
+    View vista;
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_welcome,container,false);
+
+        vista=inflater.inflate(R.layout.activity_welcome,container,false);
+        btnIniciar=vista.findViewById(R.id.btnStart);
+        btnIniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkPermissions()){
+                    requestLocationUpdates();
+                    TastyToast.makeText(getActivity().getApplicationContext(), "Aplicacion Iniciada", TastyToast.LENGTH_LONG, TastyToast.DEFAULT);
+                }
+            }
+        });
+        return vista;
 
     }
+
+
 
     public void Cerrar(View view) {
 
@@ -40,12 +60,9 @@ public class Welcome extends Fragment {
         }
     }
 
-    public void Iniciar(View view) {
-        if (checkPermissions()){
-            requestLocationUpdates();
-            TastyToast.makeText(getActivity().getApplicationContext(), "Aplicacion Iniciada", TastyToast.LENGTH_LONG, TastyToast.DEFAULT);
-        }
-    }
+    //public void Iniciar(View view) {
+
+    //}
     private boolean checkPermissions() {
         for(String permission : Utility.PERMISSIONS){
             if(getActivity().checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED)
