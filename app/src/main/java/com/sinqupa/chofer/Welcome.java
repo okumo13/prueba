@@ -24,7 +24,7 @@ import java.util.List;
 public class Welcome extends Fragment {
 
     //ESTO ES PARA EL BOTON DE INICIAR RECORRIDO
-    Button btnIniciar;
+    Button btnIniciar, btnDetener, btnCerrar;
     View vista;
 
 
@@ -33,6 +33,9 @@ public class Welcome extends Fragment {
 
         vista=inflater.inflate(R.layout.activity_welcome,container,false);
         btnIniciar=vista.findViewById(R.id.btnStart);
+        btnDetener=vista.findViewById(R.id.btnCancelar);
+        btnCerrar=vista.findViewById(R.id.btnCerrarSesion);
+        //METODOS DE LOS BOTONES
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +45,7 @@ public class Welcome extends Fragment {
                 }
             }
         });
+
         return vista;
 
     }

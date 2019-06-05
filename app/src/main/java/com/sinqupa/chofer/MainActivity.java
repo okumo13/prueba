@@ -59,8 +59,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    int pos=user.getEmail().indexOf("@");
+                    String usu=user.getEmail().substring(0,pos);
                     Utility.userID = firebaseAuth.getCurrentUser().getUid();
                     Intent intent = new Intent(MainActivity.this,Barra.class);
+                    intent.putExtra(Chofer.usuario, usu);
                     startActivity(intent);
                 }
                 else{
