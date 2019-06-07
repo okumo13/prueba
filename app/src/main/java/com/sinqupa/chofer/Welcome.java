@@ -36,6 +36,7 @@ public class Welcome extends Fragment {
         btnDetener=vista.findViewById(R.id.btnCancelar);
         btnCerrar=vista.findViewById(R.id.btnCerrarSesion);
         //METODOS DE LOS BOTONES
+
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,23 +46,24 @@ public class Welcome extends Fragment {
                 }
             }
         });
+//BOTON DETENER CAUSA CRASH
+        // btnDetener.setOnClickListener(new View.OnClickListener() {
+        //  @Override
+        //     public void onClick(View v) {
+            //        if (checkPermissions()){
+        //            removeLocationUpdates();
+        //             TastyToast.makeText(getActivity().getApplicationContext(), "Aplicacion Detenida", TastyToast.LENGTH_LONG, TastyToast.DEFAULT);
+        //       }
+        //     }
+        //   });
 
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
         return vista;
-
-    }
-
-
-
-    public void Cerrar(View view) {
-
-        getActivity().finish();
-    }
-
-    public void Detener(View view) {
-        if (checkPermissions()){
-            removeLocationUpdates();
-            TastyToast.makeText(getActivity().getApplicationContext(), "Aplicacion Detenida", TastyToast.LENGTH_LONG, TastyToast.DEFAULT);
-        }
     }
 
     //public void Iniciar(View view) {

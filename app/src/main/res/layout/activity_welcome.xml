@@ -31,7 +31,6 @@
          android:id="@+id/btnStart"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-
          android:text="Iniciar recorrido" />
  </LinearLayout>
 
@@ -45,7 +44,6 @@
         android:id="@+id/btnStop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="Detener"
         android:text="Detener"
         />
 </LinearLayout>
@@ -60,7 +58,6 @@
             android:id="@+id/btnCerrarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="Cerrar"
             android:text="Cerrar Session" />
     </LinearLayout>
 

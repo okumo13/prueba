@@ -39,6 +39,7 @@
         android:drawablePadding="10dp"
         android:hint="CONTRASEÑA"
         android:background="@drawable/caja_transparente"
+
         android:inputType="textPassword" />
 
     <Button
